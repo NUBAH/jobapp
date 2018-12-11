@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :messages
   has_many :employees
   has_many :companies
+  belongs_to :userable, :polymorphic => true
 end
