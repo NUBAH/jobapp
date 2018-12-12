@@ -17,17 +17,17 @@
         <%= devise_error_messages! %>
 
         <div class="field">
-          <%= f.lebel :名前 %><br />
+          <%= f.label :名前 %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "山田太郎" %>
         </div>
 
         <div class="field">
-          <%= f.lebel :名前（カナ）%><br />
+          <%= f.label :名前（カナ）%><br />
           <%= f.text_field :name_kana, autofocus: true, autucomplete: "name_kana", placeholder: "ヤマダタロウ" %>
         </div>
 
         <div class="field">
-          <%= f.lebel :電話番号 %><br />
+          <%= f.label :電話番号 %><br />
           <%= f.text_field :tell, autofocus: true, autocomplete: "tell", placeholder: "01234567890 ハイフン無しで入力"%>
         </div>
 
@@ -50,7 +50,7 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "新規会員登録" class: "btn btn-success" %>
+          <%= f.submit "新規会員登録", class: "btn btn-success" %>
         </div>
       <% end %>
 
