@@ -13,14 +13,11 @@
 ActiveRecord::Schema.define(version: 2018_12_09_121433) do
 
   create_table "companies", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "name_kana", null: false
-    t.integer "tell", null: false
     t.integer "post_code", null: false
     t.string "address", null: false
     t.string "location", null: false
     t.string "image_id"
-    t.string "introduction", null: false
+    t.string "introduction"
     t.integer "salary", null: false
     t.string "condition", null: false
     t.integer "offering", null: false
@@ -30,10 +27,7 @@ ActiveRecord::Schema.define(version: 2018_12_09_121433) do
   end
 
   create_table "employees", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "name_kana", null: false
     t.string "introduction"
-    t.integer "tell"
     t.date "birthday", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,12 +44,17 @@ ActiveRecord::Schema.define(version: 2018_12_09_121433) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "type", null: false
+    t.string "name", null: false
+    t.string "name_kana", null: false
+    t.integer "tell", null: false
+    t.string "userable_type"
+    t.integer "userable_id"
     t.boolean "admin", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["userable_type", "userable_id"], name: "index_users_on_userable_type_and_userable_id"
   end
 
 end
