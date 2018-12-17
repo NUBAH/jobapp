@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-8">
+			<% @users.each do |user| %>
+				<div class="card" style="width: 18rem">
+					<%= attachment_image_tag user, :image_id, size: "100×100", fallback: "images.png", class: "card-img-top" %>
+					<div class="card-body">
+						<div class="card-title">
+							<%= user.name %>
+						</div>
+						<div class="card-text">
+							時給&ensp;:&ensp;<%= user.salary %><br>
+							条件&ensp;:&ensp;<%= user.condition %><br>
+							場所&ensp;:&ensp;<%= user.location %><br>
+							<%= link_to user_path(current_user), class: "btn btn-info" %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

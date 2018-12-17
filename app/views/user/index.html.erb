@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<h2>ユーザ一覧</h2>
+			<table class="table table-hover">
+				<thead>
+					<th>ユーザ名</th>
+					<th>メールアドレス</th>
+					<th>電話番号</th>
+					<th></th>
+				</thead>
+				<tbody>
+					<% @users.each do |employee.user| %>
+ 						<tr>
+ 							<td><%= employee.user.name %></td>
+ 							<td><%= employee.user.email %></td>
+ 							<td><%= employee.user.tell %></td>
+ 							<td><%= link_to 'ユーザ詳細', employee.user, class: "btn btn-success" %></td>
+ 						</tr>
+ 					<% end %>
+ 				</tbody>
+ 			</table>
+ 		</div>
+ 		<div class="col-md-2"></div>
+ 	</div>
+</div>
