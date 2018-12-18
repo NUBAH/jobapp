@@ -7,21 +7,42 @@ class UserController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:id])
+		@user = Employee.user.find(params[:id])
+		@age = (Date.today.strftime("%Y%m%d").to_i - @user[:birthday].strftime("%Y%m%d").to_i) / 10000
 		# @chat = Chat.all
 	end
 
 	def edit
+		@user = User.find(parmas[:id])
 	end
 
 	def update
+		@user = User.find(parmas[:id])
+		if user.update(user_params)
+			if @user.userable == company
+				redirect_to user_path, notice: "情報を編集しました！"
+			elsif @user.userable == employee
+				redirect_to company_show_path, notice: "情報を編集しました！"
+			elsif @user.admin == true
+				redirect_to root_path
+			end
+		else
+			render :edit
+		end
 	end
 
 	def destroy
+		user = User.find(params[:id])
+		user.destroy
+		redirect_to root_path
 	end
 
 	def company
 		@users = Company.user.where(status: "release").order('updated_at')
+		@user = Company.user.find(params[:id])
+	end
+
+	def company_show
 		@user = Company.user.find(params[:id])
 	end
 

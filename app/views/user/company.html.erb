@@ -2,18 +2,19 @@
 	<div class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-8">
-			<% @users.each do |user| %>
+			<% @users.each do |users| %>
 				<div class="card" style="width: 18rem">
-					<%= attachment_image_tag user, :image_id, size: "100×100", fallback: "images.png", class: "card-img-top" %>
+					<%= attachment_image_tag users, :image_id, size: "100×100", fallback: "images.png", class: "card-img-top" %>
 					<div class="card-body">
 						<div class="card-title">
-							<%= user.name %>
+							<%= users.name %>
 						</div>
 						<div class="card-text">
-							時給&ensp;:&ensp;<%= user.salary %><br>
-							条件&ensp;:&ensp;<%= user.condition %><br>
-							場所&ensp;:&ensp;<%= user.location %><br>
-							<%= link_to user_path(current_user), class: "btn btn-info" %>
+							時給&ensp;:&ensp;<%= users.salary %><br>
+							条件&ensp;:&ensp;<%= users.condition %><br>
+							場所&ensp;:&ensp;<%= users.location %><br>
+							求人&ensp;:&ensp;<%= users.offering %><br>
+							<%= link_to user, class: "btn btn-info" %>
 						</div>
 					</div>
 				</div>

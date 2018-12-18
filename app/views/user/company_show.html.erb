@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row">
+		<div class="card">
+			<div class="card-header"><%= @user.name %> (<%= @user.name_kana %> )</div>
+			<div class="card-body">
+				<h5 class="card-title"><%= @user.introduction %></h5>
+				<p class="card-text"><%= @user.location %></p>
+				<div class="col-sm-4">
+					<%= attachment_image_tag @user, :image, size: "100x100", fallback: "images.png" %>
+				</div>
+				<div class="col-sm-8">
+					<table class="table">
+						<tr>
+							<td>求人数</td>
+							<td><%= @user.offering %></td>
+						</tr>
+						<tr>
+							<td>給与</td>
+							<td><%= @user.salary %></td>
+						</tr>
+						<tr>
+							<td>条件</td>
+							<td><%= @user.condition %></td>
+						</tr>
+						<tr>
+							<td>電話番号</td>
+							<td><%= @user.tell %></td>
+						</tr>
+						<tr>
+							<td>住所</td>
+							<td><%= @user.post_code %></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><%= @user.address %></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
