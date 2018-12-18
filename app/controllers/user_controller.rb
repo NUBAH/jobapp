@@ -9,7 +9,7 @@ class UserController < ApplicationController
 	def show
 		@user = Employee.user.find(params[:id])
 		@age = (Date.today.strftime("%Y%m%d").to_i - @user[:birthday].strftime("%Y%m%d").to_i) / 10000
-		# @chat = Chat.all
+		@chat = User.chat.where(userable: "company")
 	end
 
 	def edit
@@ -44,6 +44,7 @@ class UserController < ApplicationController
 
 	def company_show
 		@user = Company.user.find(params[:id])
+		@chat = User.chat.where(userable: "employee")
 	end
 
 	private

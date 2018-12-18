@@ -7,7 +7,7 @@
         <%= devise_error_messages! %>
 
         <div class="field">
-          <%= f.label :どちらのユーザですか %><br />
+          <%= f.label :どちらのユーザとして登録しますか? %><br />
           <%= f.radio_button :userable, "company" %>出店者&ensp;&ensp;:
           &ensp;&ensp;<%= f.radio_button :userable, "employee" %>ユーザ
         </div>

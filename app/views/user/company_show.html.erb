@@ -38,5 +38,27 @@
 				</div>
 			</div>
 		</div>
+		<div>
+			<% if user_signed_in? && @user.userable == company %>
+				<%= link_to "情報編集", user, class: "btn btn-success" %>
+			<% else %>
+				<%= link_to "ログインしてチャットする", new_user_session_path, class: "btn btn-info" %>
+			<% end %>
+		</div>
+		<% if user_signed_in? && @user.userable == company %>
+			<%= @chat.each do |chat| %>
+				<table class="table">
+					<tbody>
+						<tr>
+							<td><%= chat.user.name %></td>
+							<td><%= chat.updated_at %></td>
+							<td><%= chat.body.last %></td>
+							<td><%= link_to "チャットする", chat, class: "btn btn-primary" %></td>
+							<td><%= link_to "削除する", company_show_path, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %></td>
+						</tr>
+					</tbody>
+				</table>
+			<% end %>
+		<% end %>
 	</div>
 </div>

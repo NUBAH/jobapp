@@ -36,11 +36,17 @@
 		<div class="col-md-3"></div>
 		<h2>チャット中のお店の一覧</h2>
 		<table class="table">
-<!-- 			<%= @chat.each do |chat| %>
-				<tr>
-					<td></td>
-				</tr>
-			<% end %> -->
+			<%= @chat.each do |chat| %>
+				<tbody>
+					<tr>
+						<td><%= chat.user.name %></td>
+						<td><%= chat.user.salary %></td>
+						<td><%= chat.user.location %></td>
+						<td><%= chat.user.offering %></td>
+						<td><%= link_to "お店の詳細", company_show_path, class: "btn btn-promary" %></td>
+					</tr>
+				</tbody>
+			<% end %>
 		</table>
 	</div>
 </div>

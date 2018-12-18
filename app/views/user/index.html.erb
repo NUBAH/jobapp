@@ -11,12 +11,12 @@
 					<th></th>
 				</thead>
 				<tbody>
-					<% @users.each do |employee.user| %>
+					<% @users.each do |user| %>
  						<tr>
- 							<td><%= employee.user.name %></td>
- 							<td><%= employee.user.email %></td>
- 							<td><%= employee.user.tell %></td>
- 							<td><%= link_to 'ユーザ詳細', employee.user, class: "btn btn-success" %></td>
+ 							<td><%= user.name %></td>
+ 							<td><%= user.email %></td>
+ 							<td><%= user.tell %></td>
+ 							<td><%= link_to 'ユーザ詳細', user, class: "btn btn-success" %></td>
  						</tr>
  					<% end %>
  				</tbody>
