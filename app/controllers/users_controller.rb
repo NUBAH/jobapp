@@ -1,6 +1,6 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
-	before_action :authenticate_user!, except: [:company, :show]
+	before_action :authenticate_user!, except: [:company, :company_show]
 
 	def index
 		@users = Emplooyee.user.all
