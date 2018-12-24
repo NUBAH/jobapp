@@ -10,44 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_18_065249) do
+ActiveRecord::Schema.define(version: 2018_12_23_065728) do
 
   create_table "chats", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.integer "company_id", null: false
+    t.integer "employee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "companies", force: :cascade do |t|
-    t.integer "post_code", null: false
-    t.string "address", null: false
-    t.string "location", null: false
-    t.string "image_id"
-    t.string "introduction"
-    t.integer "salary", null: false
-    t.string "condition", null: false
-    t.integer "offering", null: false
-    t.boolean "status", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "employees", force: :cascade do |t|
-    t.string "introduction"
-    t.date "birthday", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "chat_id", null: false
-    t.string "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -61,14 +33,49 @@ ActiveRecord::Schema.define(version: 2018_12_18_065249) do
     t.string "name", null: false
     t.string "name_kana", null: false
     t.integer "tell", null: false
-    t.string "userable_type"
-    t.integer "userable_id"
-    t.boolean "admin", default: false, null: false
+    t.integer "post_code", null: false
+    t.string "address", null: false
+    t.string "location"
+    t.string "image_id"
+    t.string "introduction"
+    t.integer "salary", null: false
+    t.string "condition"
+    t.integer "offering", null: false
+    t.boolean "status", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["userable_type", "userable_id"], name: "index_users_on_userable_type_and_userable_id"
+    t.index ["email"], name: "index_companies_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "name", null: false
+    t.string "name_kana", null: false
+    t.date "birthday", null: false
+    t.string "introduction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_employees_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "company_id"
+    t.integer "employee_id"
+    t.integer "chat_id", null: false
+    t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
