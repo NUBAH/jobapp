@@ -1,6 +1,6 @@
 module Accessible
 	extend ActiveSupport::Concern
-	include do
+	included do
 		before_action :check_user
 	end
 

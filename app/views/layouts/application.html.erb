@@ -20,19 +20,17 @@
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? && user.type == employee %>
-            <li><%= link_to 'お店一覧', user_path(current_user), class: "btn" %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-danger" %></li>
-          <% elsif user_signed_in? && user.type == company %>
-            <li><%= link_to 'ユーザ一覧', user_path(current_user), class: "btn" %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-danger" %></li>
-          <% elsif user_signed_in? && current_user.admin == true %>
+          <% if company_signed_in? %>
+            <li><%= link_to 'ログアウト', destroy_company_session_path, method: :delete, class: "btn btn-danger" %></li>
+          <% elsif employee_signed_in? %>
+            <li><%= link_to 'ログアウト', destroy_employee_session_path, method: :delete, class: "btn btn-danger" %></li>
+          <% elsif company_signed_in? && current_company.admin == true %>
             <li><%= link_to 'お店一覧', root_path, class: "btn" %></li>
-            <li><%= link_to 'user一覧', users_path, class: "btn" %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-danger" %></li>
+            <li><%= link_to 'ログアウト', destroy_company_session_path, method: :delete, class: "btn btn-danger" %></li>
+          <% elsif employee_signed_in? && current_employee.admin == true %>
+            <li><%= link_to 'お店一覧', root_path, class: "btn" %></li>
+            <li><%= link_to 'ログアウト', destroy_employee_session_path, method: :delete, class: "btn btn-danger" %></li>
           <% else %>
-            <li><%= link_to '新規会員登録', new_user_registration_path, class: "btn" %></li>
-            <li><%= link_to 'ログイン', new_user_session_path, class: "btn" %></li>
           <% end %>
         </ul>
       </div>
