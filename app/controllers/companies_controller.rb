@@ -20,4 +20,3 @@ class CompaniesController < ApplicationController
 		params.require(:company).permit(:name, :name_kana, :tell, :post_code, :address, :location, :image_id, :introduction, :salary, :condition, :offering, :status, :admin, :email, :password, :encrypted_password)
 	end
 end
-end
