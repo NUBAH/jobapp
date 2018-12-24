@@ -1,24 +1,24 @@
 <div class="container">
   <div class="row">
+    <%= devise_error_messages! %>
     <div class="col-md-3"></div>
     <div class="col-md-6">
       <h2>新規会員登録</h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
 
         <div class="field">
-          <%= f.label :お店の名前 %>
+          <%= f.label :お店の名前 %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :お店の名前(カナ) %>
+          <%= f.label :お店の名前(カナ) %><br />
           <%= f.text_field :name_kana, autofocus: true, autocomplete: "name_kana", class: "form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :電話番号 %>
+          <%= f.label :電話番号 %><br />
           <%= f.text_field :tell, autofocus: true, autocomplete: "tell", class: "form-control" %>
         </div>
 
@@ -28,42 +28,42 @@
         </div>
 
         <div class="field">
-          <%= f.label :郵便番号 %>
+          <%= f.label :郵便番号 %><br />
           <%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", class: "form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :住所 %>
+          <%= f.label :住所 %><br />
           <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :場所 %>
+          <%= f.label :場所 %><br />
           <%= f.text_field :location, autofocus: true, autocomplete: "location", class: "form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :写真 %>
+          <%= f.label :写真 %><br />
           <%= f.attachment_field :image %>
         </div>
 
         <div class="field">
-          <%= f.label :給与 %>
+          <%= f.label :給与 %><br />
           <%= f.text_field :salary, autofocus: true, autocomplete: "salary", class: "form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :条件 %>
+          <%= f.label :条件 %><br />
           <%= f.text_field :condition, autofocus: true, autocomplete: "condition", class: "form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :求人 %>
+          <%= f.label :求人 %><br />
           <%= f.text_field :offering, autofocus: true, autocomplete: "offering", class: "form-control" %>人
         </div>
 
         <div class="field">
-          <%= f.label :お店紹介文 %>
+          <%= f.label :お店紹介文 %><br />
           <%= f.text_area :introduction, autofocus: true, class: "form-control" %>
         </div>
 
@@ -81,7 +81,7 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "新規会員登録", class: "btn btn-success" %>
+          <%= f.submit "新規会員登録", class: "btn btn-success form-control" %>
         </div>
       <% end %>
 
