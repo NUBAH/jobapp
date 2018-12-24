@@ -36,6 +36,7 @@ class DeviseCreateEmployees < ActiveRecord::Migration[5.2]
       t.string :name_kana, null: false
       t.date :birthday, null: false
       t.string :introduction
+      t.boolean :admin, default: false, null: false
       t.timestamps null: false
     end
 

@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2018_12_23_065728) do
     t.string "condition"
     t.integer "offering", null: false
     t.boolean "status", default: true, null: false
+    t.boolean "admin", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_companies_on_email", unique: true
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 2018_12_23_065728) do
     t.string "name_kana", null: false
     t.date "birthday", null: false
     t.string "introduction"
+    t.boolean "admin", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_employees_on_email", unique: true

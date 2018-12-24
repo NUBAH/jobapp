@@ -44,6 +44,7 @@ class DeviseCreateCompanies < ActiveRecord::Migration[5.2]
       t.string :condition
       t.integer :offering, null: false
       t.boolean :status, default: true, null: false
+      t.boolean :admin, default: false, null: false
       t.timestamps null: false
     end
 
