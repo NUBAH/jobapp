@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :employees, except: [:new, :create]
   root to: 'companies#index'
 
-  resources :chats
-  resources :messages
+  resources :chats, except: [:edit]
+  resources :messages, only: [:index, :new, :create]
 end
