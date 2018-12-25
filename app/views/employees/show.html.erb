@@ -1,0 +1,58 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<h2>会員詳細</h2>
+			<table class="table">
+				<tr>
+					<th>名前</th>
+					<td><%= @employee.name %></td>
+				</tr>
+				<tr>
+					<th>名前（カナ）</th>
+					<td><%= @employee.name_kana %></td>
+				</tr>
+				<tr>
+					<th>生年月日</th>
+					<td><%= @employee.birthday %></td>
+				</tr>
+				<tr>
+					<th>メールアドレス</th>
+					<td><%= @employee.email %></td>
+				</tr>
+				<tr>
+					<td><%= link_to "情報編集", edit_employee_path, class: "btn btn-success form-control" %></td>
+					<td><%= link_to "退会する", employee_path, method: :delete, data: { confirm: '本当に退会しますか？'}, class: "btn btn-danger form-control" %></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-9">
+		<h2>チャット中のお店一覧</h2>
+			<table class="table">
+				<tr>
+					<th>お店の名前</th>
+					<th>給与</th>
+					<th>場所</th>
+					<th>求人数</th>
+					<th></th>
+					<th></th>
+				</tr>
+				<%= @chat.each do |chat| %>
+					<tr>
+						<td><%= chat.name %></td>
+						<td><%= chat.salary %></td>
+						<td><%= chat.location %></td>
+						<td><%= chat.offering %></td>
+						<td><%= link_to "チャットを削除", chat_path, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %></td>
+						<td><%= link_to "チャットする", chat, class: "btn btn-info" %></td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>
