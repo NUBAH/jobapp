@@ -1,9 +1,12 @@
 class CompaniesController < ApplicationController
+	before_action :authenticate_company!, except: [:index, :show]
 
 	def index
+		@company = Company.where(status: "release").order('updated_at')
 	end
 
 	def show
+		@company =Company.find(params[:id])
 	end
 
 	def edit
@@ -15,6 +18,7 @@ class CompaniesController < ApplicationController
 	def destroy
 		company = Company.find(params[:id])
 		company.destroy
+		redirect_to root_path
 	end
 
 	private

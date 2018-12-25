@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="row">
+		<% @company.each do |company| %>
+			<div class="card text-center">
+				<h5 class="card-header"><%= company.name %> (<%= company.name_kana %>)</h5>
+				<div class="card-body">
+					<table>
+						<tbody>
+							<tr>
+								<td rowspan="7">
+									<%= attachment_image_tag company, :image_id, size: '200x200', fallback: "images.png" %>
+								</td>
+								<td colspan="3">
+									<%= company.introduction %>
+								</td>
+							</tr>
+							<tr>
+								<th>給与</th>
+								<td><%= company.salary %></td>
+							</tr>
+							<tr>
+								<th>場所</th>
+								<td><%= company.location %></td>
+							</tr>
+							<tr>
+								<th>条件</th>
+								<td><%= company.condition %></td>
+							</tr>
+							<tr>
+								<th>求人数</th>
+								<td><%= company.offering %></td>
+							</tr>
+							<tr>
+								<th>電話番号</th>
+								<td><%= company.tell %></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="card-footer">
+					<%= link_to "お店の詳細画面へ", company, class: "btn btn-primary" %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
