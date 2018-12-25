@@ -6,13 +6,20 @@ class CompaniesController < ApplicationController
 	end
 
 	def show
-		@company =Company.find(params[:id])
+		@company = Company.find(params[:id])
 	end
 
 	def edit
+		@company = Company.find(params[:id])
 	end
 
 	def update
+		@company = Company.find(params[:id])
+		if @company.update(company_params)
+			redirect_to company_path, notice: "情報を編集しました。"
+		else
+			render :edit
+		end
 	end
 
 	def destroy
