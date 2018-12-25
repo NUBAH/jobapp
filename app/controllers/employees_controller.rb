@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-	before_action :authenticate_employee!, except: [:index, :show]
+	before_action :authenticate_employee!
 
 	def index
 		@employee = Employee.all
@@ -12,12 +12,22 @@ class EmployeesController < ApplicationController
 	end
 
 	def edit
+		@employee = Employee.find(params[:id])
 	end
 
 	def update
+		@employee = Employee.find(params[:id])
+		if @employee.update(employee_params)
+			redirect_to employee_path, notice: "情報を編集しました。"
+		else
+			render :edit
+		end
 	end
 
 	def destroy
+		employee = Employee.find(params[:id])
+		employee.destroy
+		redirect_to employee_path
 	end
 
 	private

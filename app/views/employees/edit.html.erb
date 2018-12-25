@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<%= form_for (@employee) do |f| %>
+				<table class="table">
+					<tr>
+						<td><%= f.label :名前 %></td>
+						<td><%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "山田太郎", class: "form-control" %></td>
+					</tr>
+					<tr>
+						<td><%= f.label :名前（カナ） %></td>
+						<td><%= f.text_field :name_kana, autofocus: true, autocomplete: "naem_kana", placeholder: "ヤマダタロウ", class: "form-control" %></td>
+					</tr>
+					<tr>
+						<td><%= f.label :生年月日 %></td>
+						<td>
+							<div>
+					            <%= raw sprintf(f.date_select(
+					                              :birthday,
+					                              use_month_numbers: true,
+					                              start_year:        1918,
+					                              end_year:          (Time.now.year),
+					                              default:           Date.new(1989, 1, 1),
+					                              date_separator: '%s'), '年', '月') + '日' %>
+					        </div>
+					    </td>
+					</tr>
+					<tr>
+						<td><%= f.label :メールアドレス %></td>
+						<td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@example.com", class: "form-control" %></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><%= f.submit "情報を保存する", class: "btn btn-success" %></td>
+					</tr>
+				</table>
+			<% end %>
+		</div>
+	</div>
+</div>
