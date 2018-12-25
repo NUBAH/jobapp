@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="row">
+		<h3>登録者（求職者）一覧</h3>
+		<table class="table">
+			<tr>
+				<th>ユーザ名</th>
+				<th>メールアドレス</th>
+				<th></th>
+			</tr>
+			<% @employee.each do |employee| %>
+				<tr>
+					<td><%= employee.name %></td>
+					<td><%= employee.email %></td>
+					<td><%= link_to "詳細画面へ", employee, class: "btn btn-success" %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>

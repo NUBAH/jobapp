@@ -1,7 +1,8 @@
 class EmployeesController < ApplicationController
-	before_action :authenticate_employee!
+	before_action :authenticate_employee!, except: [:index]
 
 	def index
+		@employee = Employee.all
 	end
 
 	def show
