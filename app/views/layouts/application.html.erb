@@ -16,13 +16,20 @@
       <div class="container">
         <ul class="nav navbar-left">
           <li>
-            <h2>jobapp</h2>
+            <% if company_signed_in? %>
+              <h2><%= link_to "jobapp", company_path(current_company), class: "btn" %></h2>
+            <% elsif employee_signed_in? %>
+              <h2><%= link_to "jobapp", root_path, class: "btn" %></h2>
+            <% else %>
+              <h2>jobapp</h2>
+            <% end %>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if company_signed_in? %>
             <li><%= link_to 'ログアウト', destroy_company_session_path, method: :delete, class: "btn btn-danger" %></li>
           <% elsif employee_signed_in? %>
+            <li><%= link_to current_employee.name, employee_path(current_employee), class: "btn btn-info" %></li>
             <li><%= link_to 'ログアウト', destroy_employee_session_path, method: :delete, class: "btn btn-danger" %></li>
           <% elsif company_signed_in? && current_company.admin == true %>
             <li><%= link_to 'お店一覧', root_path, class: "btn" %></li>
@@ -31,6 +38,8 @@
             <li><%= link_to 'お店一覧', root_path, class: "btn" %></li>
             <li><%= link_to 'ログアウト', destroy_employee_session_path, method: :delete, class: "btn btn-danger" %></li>
           <% else %>
+            <li><%= link_to '出展者としてログイン', new_company_session_path, class: "btn btn-default" %></li>
+            <li><%= link_to '求職者としてログイン', new_employee_session_path, class: "btn btn-default" %></li>
           <% end %>
         </ul>
       </div>
