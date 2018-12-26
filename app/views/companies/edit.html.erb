@@ -53,6 +53,10 @@
 						<td><%= f.text_area :introduction, autofocus: true, autocomplete: "introduction", class: "form-control" %></td>
 					</tr>
 					<tr>
+						<td><%= f.label :情報公開 %></td>
+						<td><%= f.select :status, [["公開する", "release"], ["非公開にする", "nonrelease"]] %></td>
+					</tr>
+					<tr>
 						<td></td>
 						<td><%= f.submit "情報を保存する", class: "btn btn-success" %></td>
 					</tr>
