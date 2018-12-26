@@ -14,12 +14,12 @@
   <body>
     <header>
       <div class="container">
-        <ul class="nav navbar-left">
+        <ul class="nav navbar-nav navbar-left">
           <li>
             <% if company_signed_in? %>
-              <h2><%= link_to "jobapp", company_path(current_company), class: "btn" %></h2>
+              <h2><%= link_to "jobapp", company_path(current_company), class: "btn btn-lg btn-default" %></h2>
             <% elsif employee_signed_in? %>
-              <h2><%= link_to "jobapp", root_path, class: "btn" %></h2>
+              <h2><%= link_to "jobapp", root_path, class: "btn btn-lg btn-default" %></h2>
             <% else %>
               <h2>jobapp</h2>
             <% end %>

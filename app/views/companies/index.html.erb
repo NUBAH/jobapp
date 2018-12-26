@@ -1,46 +1,96 @@
-<div class="container">
-	<div class="row">
-		<% @company.each do |company| %>
-			<div class="card text-center">
-				<h5 class="card-header"><%= company.name %> (<%= company.name_kana %>)</h5>
-				<div class="card-body">
-					<table>
-						<tbody>
-							<tr>
-								<td rowspan="7">
-									<%= attachment_image_tag company, :image_id, size: '200x200', fallback: "images.png" %>
-								</td>
-								<td colspan="3">
-									<%= company.introduction %>
-								</td>
-							</tr>
-							<tr>
-								<th>給与</th>
-								<td><%= company.salary %></td>
-							</tr>
-							<tr>
-								<th>場所</th>
-								<td><%= company.location %></td>
-							</tr>
-							<tr>
-								<th>条件</th>
-								<td><%= company.condition %></td>
-							</tr>
-							<tr>
-								<th>求人数</th>
-								<td><%= company.offering %></td>
-							</tr>
-							<tr>
-								<th>電話番号</th>
-								<td><%= company.tell %></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="card-footer">
-					<%= link_to "お店の詳細画面へ", company, class: "btn btn-primary" %>
-				</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-9">
+				<% @company.each do |company| %>
+					<div class="card text-center">
+						<h3 class="card-header"><%= company.name %> (<%= company.name_kana %>)</h3>
+						<div class="card-body">
+							<h4><%= company.introduction %></h4>
+							<table class="table text-center">
+								<tbody>
+									<tr>
+										<td rowspan="7">
+											<%= attachment_image_tag company, :image_id, size: '200x200', fallback: "images.png" %>
+										</td>
+									</tr>
+									<tr>
+										<th>給与</th>
+										<td><%= company.salary %></td>
+									</tr>
+									<tr>
+										<th>場所</th>
+										<td><%= company.location %></td>
+									</tr>
+									<tr>
+										<th>条件</th>
+										<td><%= company.condition %></td>
+									</tr>
+									<tr>
+										<th>求人数</th>
+										<td><%= company.offering %></td>
+									</tr>
+									<tr>
+										<th>電話番号</th>
+										<td><%= company.tell %></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="card-footer">
+							<%= link_to "お店の詳細画面へ", company, class: "btn btn-primary" %>
+						</div>
+					</div>
+				<% end %>
 			</div>
-		<% end %>
+		</div>
 	</div>
-</div>
+<% if company_signed_in? && current_company.admin == true %>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-9">
+				<% @company_all.each do |company_all| %>
+					<div class="card text-center">
+						<h3 class="card-header"><%= company_all.name %> (<%= company_all.name_kana %>)</h3>
+						<div class="card-body">
+							<h4><%= company_all.introduction %></h4>
+							<table class="table text-center">
+								<tbody>
+									<tr>
+										<td rowspan="7">
+											<%= attachment_image_tag company_all, :image_id, size: '200x200', fallback: "images.png" %>
+										</td>
+									</tr>
+									<tr>
+										<th>給与</th>
+										<td><%= company_all.salary %></td>
+									</tr>
+									<tr>
+										<th>場所</th>
+										<td><%= company_all.location %></td>
+									</tr>
+									<tr>
+										<th>条件</th>
+										<td><%= company_all.condition %></td>
+									</tr>
+									<tr>
+										<th>求人数</th>
+										<td><%= company_all.offering %></td>
+									</tr>
+									<tr>
+										<th>電話番号</th>
+										<td><%= company_all.tell %></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="card-footer">
+							<%= link_to "お店の詳細画面へ", company, class: "btn btn-primary" %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+<% end %>

@@ -2,7 +2,8 @@ class CompaniesController < ApplicationController
 	before_action :authenticate_company!, except: [:index, :show]
 
 	def index
-		@company = Company.where(status: "release").where.not(offering: "0").order('updated_at')
+		@company = Company.where(status: "release").where.not(offering: "0").order('updated_at').reverse_order
+		@company_all = Company.all
 	end
 
 	def show
