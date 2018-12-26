@@ -86,6 +86,11 @@
 							</table>
 						</div>
 						<div class="card-footer">
+							<% if company_all.status == "release" %>
+								<p>公開中</p>
+							<% else %>
+								<p>非公開中</p>
+							<% end %>
 							<%= link_to "お店の詳細画面へ", company, class: "btn btn-primary" %>
 						</div>
 					</div>

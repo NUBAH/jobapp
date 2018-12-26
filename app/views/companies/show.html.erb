@@ -53,6 +53,8 @@
 					<td>
 						<% if company_signed_in? %>
 							<%= link_to "お店情報編集", edit_company_path, class: "btn btn-warning" %>
+						<% elsif employee_signed_in? %>
+							<%= link_to "チャット開始", chat_path, class: "btn btn-primary" %>
 						<% else %>
 							<%= link_to "ログインしてチャットする", new_employee_session_path, class: "btn btn-info" %>
 						<% end %>
