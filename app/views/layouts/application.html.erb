@@ -17,11 +17,11 @@
         <ul class="nav navbar-nav navbar-left">
           <li>
             <% if company_signed_in? %>
-              <h2><%= link_to "jobapp", company_path(current_company), class: "btn btn-lg btn-default" %></h2>
+              <%= link_to "jobapp", company_path(current_company), class: "btn btn-lg btn-default" %>
             <% elsif employee_signed_in? %>
-              <h2><%= link_to "jobapp", root_path, class: "btn btn-lg btn-default" %></h2>
+              <%= link_to "jobapp", root_path, class: "btn btn-lg btn-default" %>
             <% else %>
-              <h2>jobapp</h2>
+              <%= link_to "jobapp", root_path, class: "btn btn-lg btn-default" %>
             <% end %>
           </li>
         </ul>
@@ -44,6 +44,8 @@
         </ul>
       </div>
     </header>
-    <%= yield %>
+    <div class="main-contents">
+      <%= yield %>
+    </div>
   </body>
 </html>
