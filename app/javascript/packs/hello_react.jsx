@@ -6,21 +6,38 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-class Hello extends React.Component {
-	constructor(props) {
-		super(props)
+class ScrollButton extends React.Component {
+	constructor() {
+		super();
+
+		this.state = {
+			intervalID: 0
+		};
 	}
 
-	render() {
-		return(
-			<div>Hello {this.props.name}!</div>
-		);
-	}
+	scrollStep() {
+	    if (window.pageYOffset === 0) {
+	        clearInterval(this.state.intervalId);
+	    }
+    }
+
+    scrollToTop() {
+    	window.scroll(0, 0);
+    }
+
+    render () {
+        return <button title='Back to top' className='scroll' onClick={ () => { this.scrollToTop(); }}>
+                	<span className='arrow-up glyphicon glyphicon-chevron-up'></span>
+               </button>;
+    }
+
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Hello name="Nubah" />,
-    document.body.appendChild(document.createElement('div')),
+  	<ScrollButton/>,
+  	document.getElementById('app'),
   )
 })
+

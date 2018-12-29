@@ -1,4 +1,6 @@
-<div>
+<% content_for :javascript_pack do %>
+	<%= javascript_pack_tag 'hello_react' %>
+<% end %>
 	<div class="main-visual">
 		<div class="main-visual-content">
 		</div>
@@ -105,3 +107,4 @@
 		</div>
 	</div>
 <% end %>
+<div id="app"></div>
