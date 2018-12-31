@@ -9,12 +9,12 @@
 
         <div class="field">
           <%= f.label :名前 %><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "山田太郎", class: "form-control" %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "山田太郎", :required => "required", class: "form-control" %>
         </div>
 
         <div class="field">
           <%= f.label :名前（カナ） %><br />
-          <%= f.text_field :name_kana, autofocus: true, autocomplete: "name_kana", placeholder: "ヤマダタロウ", class: "form-control" %>
+          <%= f.text_field :name_kana, autofocus: true, autocomplete: "name_kana", placeholder: "ヤマダタロウ", :required => "required", class: "form-control" %>
         </div>
 
         <div class="field">
@@ -32,7 +32,7 @@
 
         <div class="field">
           <%= f.label :メールアドレス %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@example.com", class: "form-control" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@example.com", :required => "required", class: "form-control" %>
         </div>
 
         <div class="field">
@@ -40,12 +40,12 @@
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
           <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          <%= f.password_field :password, autocomplete: "new-password", :required => "required", class: "form-control" %>
         </div>
 
         <div class="field">
           <%= f.label :パスワード（確認） %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => "required", class: "form-control" %>
         </div>
 
         <div class="actions">
