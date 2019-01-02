@@ -27,6 +27,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if company_signed_in? %>
+            <li><%= link_to current_company.name, company_path(current_company), class: "btn btn-info" %></li>
             <li><%= link_to 'ログアウト', destroy_company_session_path, method: :delete, class: "btn btn-danger" %></li>
           <% elsif employee_signed_in? %>
             <li><%= link_to current_employee.name, employee_path(current_employee), class: "btn btn-info" %></li>
