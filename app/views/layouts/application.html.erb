@@ -39,7 +39,7 @@
             <li><%= link_to 'お店一覧', root_path, class: "btn" %></li>
             <li><%= link_to 'ログアウト', destroy_employee_session_path, method: :delete, class: "btn btn-danger" %></li>
           <% else %>
-            <li><%= link_to '出展者としてログイン', new_company_session_path, class: "btn btn-default" %></li>
+            <li><%= link_to '出店者としてログイン', new_company_session_path, class: "btn btn-default" %></li>
             <li><%= link_to '求職者としてログイン', new_employee_session_path, class: "btn btn-default" %></li>
           <% end %>
         </ul>
