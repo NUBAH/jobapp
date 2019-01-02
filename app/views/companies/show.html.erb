@@ -7,7 +7,7 @@
 			<table class="table">
 				<tr>
 					<td rowspan="10">
-						<%= attachment_image_tag @company, :image_id, size: '300x300', fallback: "images.png" %>
+						<%= attachment_image_tag @company, :image, size: '300x300', fallback: "images.png" %>
 					</td>
 					<th colspan="3">
 						<%= @company.name %>(<%= @company.name_kana %>)

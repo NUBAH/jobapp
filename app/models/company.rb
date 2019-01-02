@@ -6,4 +6,5 @@ class Company < ApplicationRecord
 	has_many :chats
 	has_many :messages
 	enum status: {release: true, nonrelease: false}
+	attachment :image
 end
