@@ -27,7 +27,7 @@ class EmployeesController < ApplicationController
 	def destroy
 		employee = Employee.find(params[:id])
 		employee.destroy
-		redirect_to employee_path
+		redirect_to employee_path, notice: "情報を削除しました。"
 	end
 
 	private
