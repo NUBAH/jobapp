@@ -59,6 +59,7 @@
 					<td colspan="2">
 						<% if company_signed_in? %>
 							<%= link_to "お店情報編集", edit_company_path, class: "btn btn-warning" %>
+							<%= link_to "情報削除", company_path, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
 						<% elsif employee_signed_in? %>
 							<%= link_to "チャット開始", chat_path, class: "btn btn-primary" %>
 						<% else %>
