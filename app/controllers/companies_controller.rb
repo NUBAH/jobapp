@@ -26,7 +26,7 @@ class CompaniesController < ApplicationController
 	def destroy
 		company = Company.find(params[:id])
 		company.destroy
-		redirect_to root_path
+		redirect_to root_path, notice: "情報を削除しました。"
 	end
 
 	private

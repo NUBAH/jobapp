@@ -10,6 +10,7 @@
 		<div class="row">
 			<div class="col-md-1"></div>
 			<div class="col-md-9">
+				<p><%= flash.notice %></p>
 				<% @company.each do |company| %>
 					<div class="card text-center">
 						<h3 class="card-header"><%= company.name %> (<%= company.name_kana %>)</h3>
