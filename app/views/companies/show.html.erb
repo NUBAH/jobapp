@@ -7,7 +7,13 @@
 			<p class="text-center"><%= @company.introduction %></p>
 			<table class="table">
 				<tr>
+					<% if company_signed_in? %>
 					<td rowspan="10">
+					<% elsif employee_signed_in? %>
+					<td rowspan="9">
+					<% else %>
+					<td rowspan="9">
+					<% end %>
 						<%= attachment_image_tag @company, :image, size: '300x300', fallback: "images.png" %>
 					</td>
 					<th colspan="3">
@@ -16,7 +22,7 @@
 				</tr>
 				<tr>
 					<th>給与 :</th>
-					<td><%= @company.salary %></td>
+					<td>時給<%= @company.salary %>円</td>
 				</tr>
 				<tr>
 					<th>場所 :</th>
@@ -45,16 +51,19 @@
 					<th>メールアドレス :</th>
 					<td><%= @company.email %></td>
 				</tr>
-				<tr>
-					<th>情報 :</th>
-					<td>
-						<% if @company.status == true %>
-							<p>公開中</p>
-						<% else %>
-							<p>非公開中</p>
-						<% end %>
-					</td>
-				</tr>
+				<% if company_signed_in? %>
+					<tr>
+						<th>情報 :</th>
+						<td>
+							<% if @company.status == "release" %>
+								<p>公開中</p>
+							<% else %>
+								<p>非公開中</p>
+							<% end %>
+						</td>
+					</tr>
+				<% elsif employee_signed_in? %>
+				<% end %>
 				<tr>
 					<th></th>
 					<td colspan="2">

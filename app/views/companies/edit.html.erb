@@ -34,7 +34,7 @@
 					</tr>
 					<tr>
 						<td><%= f.label :給与 %></td>
-						<td><%= f.text_field :salary, autofocus: true, autocomplete: "salary", placeholder: "時給◯◯円", class: "form-control" %></td>
+						<td>時給<%= f.number_field :salary, :min => "0", :max => "5000" %>円</td>
 					</tr>
 					<tr>
 						<td><%= f.label :写真 %></td>
