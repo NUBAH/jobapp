@@ -7,4 +7,8 @@ class Company < ApplicationRecord
 	has_many :messages
 	enum status: {release: true, nonrelease: false}
 	attachment :image
+
+	validates :introduction, length: { maximum: 120 }
+	validates :tell, numericality: { only_integer: true }
+	validates :post_code, numericality: { only_integer: true }
 end
