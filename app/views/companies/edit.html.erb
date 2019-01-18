@@ -6,31 +6,31 @@
 				<table class="table">
 					<tr>
 						<td><%= f.label :お店の名前 %></td>
-						<td><%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "レストラン◯◯ ◯◯店", class: "form-control" %></td>
+						<td><%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "レストラン◯◯ ◯◯店", :required => "required", class: "form-control" %></td>
 					</tr>
 					<tr>
 						<td><%= f.label :お店の名前（カナ） %></td>
-						<td><%= f.text_field :name_kana, autofocus: true, autocomplete: "name_kana", placeholder: "レストラン◯◯ ◯◯テン", class: "form-control" %></td>
+						<td><%= f.text_field :name_kana, autofocus: true, autocomplete: "name_kana", placeholder: "レストラン◯◯ ◯◯テン", :required => "required", class: "form-control" %></td>
 					</tr>
 					<tr>
 						<td><%= f.label :電話番号 %></td>
-						<td><%= f.text_field :tell, autofocus: true, autocomplete: "tell", placeholder: "01234567890 ハイフン無しで入力", class: "form-control" %></td>
+						<td><%= f.text_field :tell, autofocus: true, autocomplete: "tell", placeholder: "01234567890 ハイフン無しで入力", :required => "required", class: "form-control" %></td>
 					</tr>
 					<tr>
 						<td><%= f.label :メールアドレス %></td>
-						<td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@example.com", class: "form-control" %></td>
+						<td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@example.com", :required => "required", class: "form-control" %></td>
 					</tr>
 					<tr>
 						<td><%= f.label :郵便番号 %></td>
-						<td><%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", placeholder: "0000000 ハイフン無しで入力", class: "form-control" %></td>
+						<td><%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", placeholder: "0000000 ハイフン無しで入力", :required => "required", class: "form-control" %></td>
 					</tr>
 					<tr>
 						<td><%= f.label :住所 %></td>
-						<td><%= f.text_field :address, autofocus: true, autocomplete: "address", placeholder: "東京都◯◯区◯◯ 0-0-0", class: "form-control" %></td>
+						<td><%= f.text_field :address, autofocus: true, autocomplete: "address", placeholder: "東京都◯◯区◯◯ 0-0-0", :required => "required", class: "form-control" %></td>
 					</tr>
 					<tr>
 						<td><%= f.label :場所 %></td>
-						<td><%= f.text_field :location, autofocus: true, autocomplete: "location", placeholder: "◯◯駅から徒歩◯◯分", class: "form-control" %></td>
+						<td><%= f.text_field :location, autofocus: true, autocomplete: "location", placeholder: "◯◯駅から徒歩◯◯分", :required => "required", class: "form-control" %></td>
 					</tr>
 					<tr>
 						<td><%= f.label :給与 %></td>
@@ -38,11 +38,13 @@
 					</tr>
 					<tr>
 						<td><%= f.label :写真 %></td>
-						<td><%= f.attachment_field :image %></td>
+						<td><%= attachment_image_tag @company, :image, size: '100x100', fallback: "images.png" %>
+							<%= f.attachment_field :image %>
+						</td>
 					</tr>
 					<tr>
 						<td><%= f.label :条件 %></td>
-						<td><%= f.text_field :condition, autofocus: true, autocomplete: "condition", placeholder: "週休◯◯日", class: "form-control" %></td>
+						<td><%= f.text_field :condition, autofocus: true, autocomplete: "condition", placeholder: "週休◯◯日", :required => "required", class: "form-control" %></td>
 					</tr>
 					<tr>
 						<td><%= f.label :求人 %></td>
